@@ -23,7 +23,7 @@ Write a function: class Solutim { public int solution(string S, string T); }
 that, given strings S and T representing time in the format : : ss',
 retums the number of interesting points in time between S and T (inclusive).
 
-For example, given "15 : 15 : ee" and "15 : 15 : 12", your function should retum 1,
+For example, given "15 : 15 :00" and "15 : 15 : 12", your function should retum 1,
 because there is only one interesting point in time between these points (namely "15 : 15 : 11"), 
 Given "22:22 : 21" and "22 : 22 : 23", your function should return 3; 
 interesting points in time are "22 : 22: 21", '22 : 22: 22", and '22 : 22:23". 
