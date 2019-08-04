@@ -10,7 +10,7 @@ namespace CodilityTimeProblem
     {
         static void Main(string[] args)
         {
-            int result = Solution.solution("15:15:00", "15:15:12");
+            int result = Solution.solution("15:15:00", "15:15:03");
             Console.ReadLine();
         }
     }
@@ -20,16 +20,58 @@ namespace CodilityTimeProblem
         public static int solution(String S, String T)
         {
             TimeSpan startTime = TimeSpan.Parse(S);
-            Console.WriteLine("Start Time : " + startTime.ToString());
+
             TimeSpan endTime = TimeSpan.Parse(T);
             TimeSpan oneSecond = TimeSpan.Parse("00:00:01");
-            startTime = startTime.Add(oneSecond);
-            Console.WriteLine("Start Time : " + startTime.ToString());
-            if (startTime< endTime)
-            {
-                Console.WriteLine("S is less than T");
+
+            int interstingCount = 0;
+            
+                while (startTime <= endTime)
+                {
+                   
+                    if (CheckForIntersting(startTime))
+                    {
+                        interstingCount++;
+                    }
+                startTime = startTime.Add(oneSecond);
             }
-            return 0;
+            
+            return interstingCount;
         }
+            
+           
+      
+        public static bool CheckForIntersting(TimeSpan time)
+        {
+            //HOur
+            int hours = time.Hours;
+            int tenthPlaceHour = hours / 10;
+            int unitPlaceHour = hours % 10;
+
+            //Minute
+            int minute = time.Minutes;
+            int tenthPlaceMinute = minute / 10;
+            int unitPlaceMinute= minute % 10;
+
+            //Seconds
+            int seconds = time.Seconds;
+            int tenthPlaceSecond = seconds / 10;
+            int unitPlaceSecond = seconds % 10;
+
+            HashSet<int> timeSet = new HashSet<int>();
+            timeSet.Add(tenthPlaceHour);
+            timeSet.Add(unitPlaceHour);
+            timeSet.Add(tenthPlaceMinute);
+            timeSet.Add(unitPlaceMinute);
+            timeSet.Add(tenthPlaceSecond);
+            timeSet.Add(unitPlaceSecond);
+            if (timeSet.Count == 2)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
     }
 }
