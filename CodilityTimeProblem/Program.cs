@@ -10,6 +10,16 @@ namespace CodilityTimeProblem
     {
         static void Main(string[] args)
         {
+            int result = Solution.solution("", "");
+            Console.ReadLine();
+        }
+    }
+
+    public static class Solution {
+
+        public static int solution(String S, String T)
+        {
+            return 0;
         }
     }
 }
