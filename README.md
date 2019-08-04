@@ -1,4 +1,3 @@
-)
 # InterestingDigitalClockProblem
 Clarks Codility Interesting Digital Clock Problem
 
