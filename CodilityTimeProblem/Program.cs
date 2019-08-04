@@ -10,7 +10,8 @@ namespace CodilityTimeProblem
     {
         static void Main(string[] args)
         {
-            int result = Solution.solution("15:15:00", "15:15:03");
+            int result = Solution.solution("15:15:00", "15:15:15");
+            Console.Write("Result is : " + result);
             Console.ReadLine();
         }
     }
@@ -24,6 +25,9 @@ namespace CodilityTimeProblem
             TimeSpan endTime = TimeSpan.Parse(T);
             TimeSpan oneSecond = TimeSpan.Parse("00:00:01");
 
+            TimeSpan timeDiff = endTime - startTime;
+
+           
             int interstingCount = 0;
             
                 while (startTime <= endTime)
@@ -43,7 +47,7 @@ namespace CodilityTimeProblem
       
         public static bool CheckForIntersting(TimeSpan time)
         {
-            //HOur
+            //Hour
             int hours = time.Hours;
             int tenthPlaceHour = hours / 10;
             int unitPlaceHour = hours % 10;
